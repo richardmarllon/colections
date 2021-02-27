@@ -1,4 +1,4 @@
-import CartHome from "../../components/CartHome/CartHome";
+import CartHome from "../../components/CardHome/CardHome";
 
 const Home = () => {
   return (
