@@ -10,7 +10,7 @@ const Card = ({ item }) => {
         <NameBox>{item.name}</NameBox>
         {item.species && <GenericText>{item.species}</GenericText>}
 
-        <StyledButton />
+        <StyledButton isFav={false} />
       </InfoBox>
     </CardContainer>
   );
