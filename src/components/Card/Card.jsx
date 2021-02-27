@@ -1,4 +1,4 @@
-import StyledButton from "../Button/Button";
+import StyledButton from "../StyledButton/StyledButton";
 import { CardContainer, GenericText, ImgBox, InfoBox, NameBox } from "./style";
 
 const Card = ({ item }) => {
@@ -10,7 +10,7 @@ const Card = ({ item }) => {
         <NameBox>{item.name}</NameBox>
         {item.species && <GenericText>{item.species}</GenericText>}
 
-        <StyledButton></StyledButton>
+        <StyledButton />
       </InfoBox>
     </CardContainer>
   );
