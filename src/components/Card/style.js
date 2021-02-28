@@ -27,6 +27,16 @@ export const ImgBox = styled.img`
   @media (min-width: 600px) {
   }
 `;
+
+export const ImgBoxP = styled.img`
+  box-sizing: border-box;
+  max-height: 15vh;
+  padding: 5px;
+  margin: 2% 0% 2% 4%;
+  @media (min-width: 600px) {
+  }
+`;
+
 export const InfoBox = styled.div`
   display: flex;
   flex-direction: column;
