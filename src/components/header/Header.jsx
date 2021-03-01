@@ -15,7 +15,6 @@ const Header = () => {
           <div>
             <Button
               variant="contained"
-              // disabled={history.location.pathname === "/pokemon" ? true : false}
               onClick={() => {
                 history.push("/pokemon");
               }}
@@ -24,7 +23,6 @@ const Header = () => {
             </Button>
             <Button
               variant="contained"
-              // disabled={history.location.pathname === "/ricky" ? true : false}
               onClick={() => {
                 history.push("/ricky");
               }}
@@ -33,7 +31,6 @@ const Header = () => {
             </Button>
             <Button
               variant="contained"
-              // disabled={history.location.pathname === "/" ? true : false}
               onClick={() => {
                 history.push("/");
               }}

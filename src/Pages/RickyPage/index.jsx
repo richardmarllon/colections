@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import CardList from "../../components/CardList/CardList";
+import SearchField from "../../components/SearchField/SearchField";
 import { BtnContainer, PageBtn } from "./styles";
 
 const RickyPage = () => {
   //estados
-  const [list, setList] = useState([]);
+  const [rickys, setRicks] = useState([]);
   const [page, setPage] = useState(1);
 
   // bater na api e trazer os dados
@@ -14,7 +15,17 @@ const RickyPage = () => {
     axios
       .get(`https://rickandmortyapi.com/api/character/?page=${page}`)
       .then((response) => {
-        setList(response.data.results);
+        let list = [];
+        response.data.results.map((item) => {
+          const brokenUrl = item.url.split("/");
+          const id = brokenUrl[brokenUrl.length - 2];
+          list.push({
+            type: "rickys",
+            name: item.name,
+            img: item.image,
+          });
+        });
+        setRicks(list);
       });
   }, [page]);
 
@@ -29,7 +40,8 @@ const RickyPage = () => {
 
   return (
     <>
-      <CardList list={list}></CardList>
+      <SearchField onRicky={true} />
+      <CardList list={rickys}></CardList>
       <BtnContainer>
         <PageBtn
           disabled={page === 1 ? true : false}
