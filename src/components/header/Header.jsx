@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 
 const Header = () => {
   const history = useHistory();
-  console.log(history);
+  // console.log(history);
   return (
     <>
       <AppBar position="sticky">
@@ -36,6 +36,14 @@ const Header = () => {
               }}
             >
               HOME
+            </Button>
+            <Button
+              variant="contained"
+              onClick={() => {
+                history.push("/result");
+              }}
+            >
+              Resultado
             </Button>
           </div>
         </MenuBar>

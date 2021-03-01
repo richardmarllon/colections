@@ -37,7 +37,6 @@ const RickyPage = () => {
     let prevPage = page - 1;
     setPage(prevPage);
   };
-
   return (
     <>
       <SearchField onRicky={true} />

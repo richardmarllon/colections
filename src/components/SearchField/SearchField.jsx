@@ -3,16 +3,40 @@ import { useState } from "react";
 import Card from "../Card/Card";
 import CardList from "../CardList/CardList";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { searchCharacter } from "../../Redux/Actions/actions";
+import { useHistory } from "react-router-dom";
+import { DivSearch, InputField } from "./styles";
+import SearchIcon from "@material-ui/icons/Search";
+import IconButton from "@material-ui/core/IconButton";
 
 const SearchField = ({ onRicky }) => {
   const [value, setValue] = useState();
-  const [character, setCharacter] = useState([]);
+  const history = useHistory();
+
+  const distpatch = useDispatch();
 
   const handleSearch = (evt) => {
     evt.preventDefault();
 
     if (onRicky) {
       console.log("noricky");
+      let search = value.split(" ").join("+");
+      console.log(search);
+      axios
+        .get(`https://rickandmortyapi.com/api/character/?name=${search}`)
+        .then((response) => {
+          let character = [];
+          response.data.results.map((item) => {
+            character.push({
+              type: "ricky",
+              name: item.name,
+              img: item.image,
+            });
+          });
+
+          distpatch(searchCharacter(character[0]));
+        });
     } else {
       axios
         .get(`https://pokeapi.co/api/v2/pokemon/${value.toLowerCase()}`)
@@ -23,30 +47,29 @@ const SearchField = ({ onRicky }) => {
             name: response.data.name,
             img: response.data.sprites.other["official-artwork"].front_default,
           });
-          setCharacter(character);
+          distpatch(searchCharacter(character[0]));
         });
     }
+    history.push("/result");
   };
-
-  console.log(character, "resposta");
 
   return (
     <>
-      <form>
-        <input
+      <DivSearch>
+        <InputField
+          placeholder="Encontre seu personagem favorito!"
           onChange={(evt) => {
             setValue(evt.target.value);
           }}
-        ></input>
-        <button
+        ></InputField>
+        <IconButton
           onClick={(evt) => {
             handleSearch(evt);
           }}
         >
-          Busca
-        </button>
-      </form>
-      {character.length > 0 && <CardList list={character}></CardList>}
+          <SearchIcon />
+        </IconButton>
+      </DivSearch>
     </>
   );
 };
