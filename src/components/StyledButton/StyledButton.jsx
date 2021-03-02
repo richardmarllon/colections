@@ -4,20 +4,42 @@ import StarBorderIcon from "@material-ui/icons/StarBorder";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import { useDispatch, useSelector } from "react-redux";
 import { favListAdd, favListRemove } from "../../Redux/Actions/actions";
+import { useEffect, useState } from "react";
 
 const StyledButton = ({ character }) => {
+  const [isFav, setIsFav] = useState(false);
   const dispatch = useDispatch();
   const favList = useSelector((state) => state.favList);
   // console.log(favList, "a lista aqui");
 
-  let isFav = false;
-  if (favList) {
-    favList.map((item) => {
-      if (item === character) {
-        isFav = true;
-      }
-    });
-  }
+  let key = "listOfFav";
+  let favs = JSON.parse(localStorage.getItem(key));
+
+  console.log(favs, "vindo da local");
+
+  // let isFav = false;
+  // if (favList) {
+  //   favList.map((item) => {
+  //     if (item === character) {
+  //       isFav = true;
+  //     }
+  //   });
+  // }
+
+  useEffect(() => {
+    if (favs) {
+      console.log("entrouuuuuu");
+      console.log(favs);
+      favs.map((item) => {
+        if (item.name === character.name) {
+          console.log(
+            "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+          );
+          setIsFav(true);
+        }
+      });
+    }
+  }, [favs]);
 
   return (
     <NewBtn

@@ -6,6 +6,7 @@ export const favList = (state = defaultState, action) => {
     case FAV_LIST_ADD:
       state = [...state, action.listOfCharacter];
       console.log(state, "adicionou esse: ", action.listOfCharacter);
+      localStorage.setItem("listOfFav", JSON.stringify(state));
       return state;
     case FAV_LIST_REMOVE:
       console.log("entrou");
@@ -13,6 +14,7 @@ export const favList = (state = defaultState, action) => {
         (item) => item.name !== action.characterToRemove.name
       );
       console.log(state);
+      localStorage.setItem("listOfFav", JSON.stringify(newList));
       return newList;
     default:
       return state;
