@@ -1,5 +1,5 @@
 import { AppBar, Button } from "@material-ui/core";
-import { MenuBar, Logo, Text } from "./styles";
+import { MenuBar, Logo, Text, BtnContainer, BtnStyled } from "./styles";
 import livro from "../images/livro.svg";
 import { useHistory } from "react-router-dom";
 
@@ -11,48 +11,41 @@ const Header = () => {
         <MenuBar>
           <Logo src={livro} />
           <Text>Coleções</Text>
-          <div>
-            <Button
-              variant="contained"
-              onClick={() => {
-                history.push("/pokemon");
-              }}
-            >
-              pokemon
-            </Button>
-            <Button
-              variant="contained"
-              onClick={() => {
-                history.push("/ricky");
-              }}
-            >
-              Ricky
-            </Button>
-            <Button
-              variant="contained"
+          <BtnContainer>
+            <BtnStyled
+              variant="outlined"
               onClick={() => {
                 history.push("/");
               }}
             >
               HOME
-            </Button>
-            <Button
-              variant="contained"
+            </BtnStyled>
+            <BtnStyled
+              variant="outlined"
               onClick={() => {
-                history.push("/result");
+                history.push("/pokemon");
               }}
             >
-              Resultado
-            </Button>
-            <Button
-              variant="contained"
+              pokemon
+            </BtnStyled>
+            <BtnStyled
+              variant="outlined"
+              onClick={() => {
+                history.push("/ricky");
+              }}
+            >
+              Ricky
+            </BtnStyled>
+
+            <BtnStyled
+              variant="outlined"
               onClick={() => {
                 history.push("/favs");
               }}
             >
               Favs
-            </Button>
-          </div>
+            </BtnStyled>
+          </BtnContainer>
         </MenuBar>
       </AppBar>
     </>

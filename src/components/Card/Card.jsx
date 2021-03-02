@@ -6,10 +6,10 @@ const Card = ({ item }) => {
     <CardContainer>
       {item.type !== "pokemon" && <ImgBox src={item.img} />}
       {item.type === "pokemon" && <ImgBoxP src={item.img} />}
-      <InfoBox>
-        <NameBox>{item.name}</NameBox>
-        <StyledButton character={item} />
-      </InfoBox>
+        <InfoBox>
+          <NameBox>{item.name}</NameBox>
+          <StyledButton character={item} />
+        </InfoBox>
     </CardContainer>
   );
 };

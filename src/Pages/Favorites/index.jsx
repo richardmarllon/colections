@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import CardList from "../../components/CardList/CardList";
 import { BtnContainer, BtnStyled, Text, TextInfo } from "./styles";
+import { Fade } from "react-awesome-reveal";
 
 const Favorites = () => {
   const favList = useSelector((state) => state.favList);
@@ -31,14 +32,23 @@ const Favorites = () => {
           RICKY
         </BtnStyled>
       </BtnContainer>
+
       {newList.length === 0 && (
-        <TextInfo>Poxa! Você não tem nenhum favorito por aqui ainda.</TextInfo>
+        <Fade>
+          <TextInfo>
+            Poxa! Você não tem nenhum favorito por aqui ainda.
+          </TextInfo>
+        </Fade>
       )}
       {showRicky === undefined && newList.length !== 0 && (
-        <TextInfo>Escolha uma das opções acima!</TextInfo>
+        <Fade>
+          <TextInfo>Escolha uma das opções acima!</TextInfo>
+        </Fade>
       )}
       {showRicky !== undefined && newList.length > 0 && (
-        <CardList list={newList} />
+        <Fade>
+          <CardList list={newList} />
+        </Fade>
       )}
     </div>
   );

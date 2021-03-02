@@ -5,6 +5,7 @@ import Card from "../../components/Card/Card";
 import CardList from "../../components/CardList/CardList";
 import SearchField from "../../components/SearchField/SearchField";
 import { BtnContainer, PageBtn } from "../RickyPage/styles";
+import { Fade } from "react-awesome-reveal";
 
 const PokemonPage = () => {
   const [pokemons, setPokemons] = useState([]);
@@ -42,7 +43,9 @@ const PokemonPage = () => {
   return (
     <div>
       <SearchField onRicky={false} />
-      <CardList list={pokemons}></CardList>
+      <Fade>
+        <CardList list={pokemons}></CardList>
+      </Fade>
       <BtnContainer>
         <PageBtn
           disabled={page === 0 ? true : false}
