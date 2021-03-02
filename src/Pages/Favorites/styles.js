@@ -2,12 +2,10 @@ import { Button, Typography } from "@material-ui/core";
 import styled from "styled-components";
 
 export const BtnContainer = styled.div`
-  /* border: 1px solid red; */
   background-color: gray;
   box-sizing: border-box;
   max-width: 80vw;
   margin: 0 auto 0;
-  /* max-height: 10vh; */
   padding: 1%;
   display: flex;
   justify-content: space-evenly;
@@ -15,7 +13,6 @@ export const BtnContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   @media (max-width: 600px) {
-    border: 1px solid green;
     max-width: 100vw;
     margin: 0;
     padding: 5%;
