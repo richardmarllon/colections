@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import CardList from "../../components/CardList/CardList";
-import { BtnContainer, BtnStyled, Text } from "./styles";
+import { BtnContainer, BtnStyled, Text, TextInfo } from "./styles";
 
 const Favorites = () => {
   const favList = useSelector((state) => state.favList);
@@ -18,7 +18,7 @@ const Favorites = () => {
       filteredList = favList.filter((item) => item.type === "pokemon");
       setNewList(filteredList);
     }
-  }, [showRicky]);
+  }, [showRicky, favList]);
 
   return (
     <div>
@@ -31,7 +31,15 @@ const Favorites = () => {
           RICKY
         </BtnStyled>
       </BtnContainer>
-      {showRicky !== undefined && <CardList list={newList} />}
+      {newList.length === 0 && (
+        <TextInfo>Poxa! Você não tem nenhum favorito por aqui ainda.</TextInfo>
+      )}
+      {showRicky === undefined && newList.length !== 0 && (
+        <TextInfo>Escolha uma das opções acima!</TextInfo>
+      )}
+      {showRicky !== undefined && newList.length > 0 && (
+        <CardList list={newList} />
+      )}
     </div>
   );
 };

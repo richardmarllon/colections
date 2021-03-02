@@ -1,4 +1,3 @@
-import axios from "axios";
 import StyledButton from "../StyledButton/StyledButton";
 import { CardContainer, ImgBox, InfoBox, NameBox, ImgBoxP } from "./style";
 

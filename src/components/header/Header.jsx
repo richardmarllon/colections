@@ -1,4 +1,4 @@
-import { AppBar, Button, Typography } from "@material-ui/core";
+import { AppBar, Button } from "@material-ui/core";
 import { MenuBar, Logo, Text } from "./styles";
 import livro from "../images/livro.svg";
 import { useHistory } from "react-router-dom";

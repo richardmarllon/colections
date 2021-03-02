@@ -1,8 +1,5 @@
 import axios from "axios";
 import { useState } from "react";
-import Card from "../Card/Card";
-import CardList from "../CardList/CardList";
-import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { searchCharacter } from "../../Redux/Actions/actions";
 import { useHistory } from "react-router-dom";
