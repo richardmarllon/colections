@@ -24,13 +24,16 @@ const SearchField = ({ onRicky }) => {
           let character = [];
           response.data.results.map((item) => {
             character.push({
-              type: "ricky",
+              type: "rickys",
               name: item.name,
               img: item.image,
             });
           });
 
           distpatch(searchCharacter(character[0]));
+        })
+        .catch(() => {
+          history.push("/error");
         });
     } else {
       axios
@@ -43,6 +46,9 @@ const SearchField = ({ onRicky }) => {
             img: response.data.sprites.other["official-artwork"].front_default,
           });
           distpatch(searchCharacter(character[0]));
+        })
+        .catch(() => {
+          history.push("/error");
         });
     }
     history.push("/result");

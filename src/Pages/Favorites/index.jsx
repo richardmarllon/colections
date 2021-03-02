@@ -9,6 +9,8 @@ const Favorites = () => {
   const [showRicky, setShowRicky] = useState();
   const [newList, setNewList] = useState(favList);
 
+  console.log(favList);
+
   useEffect(() => {
     let filteredList = [];
 

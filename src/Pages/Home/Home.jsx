@@ -5,7 +5,6 @@ const Home = () => {
   let key = "listOfFav";
 
   useEffect(() => {
-    console.log(localStorage.getItem(key));
     if (localStorage.getItem(key) === null) {
       localStorage.setItem(key, JSON.stringify([{}]));
     }

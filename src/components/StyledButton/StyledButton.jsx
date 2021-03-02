@@ -13,7 +13,6 @@ const StyledButton = ({ character }) => {
 
   useEffect(() => {
     setIsFav(false);
-    console.log(favList, "aquiiiiiiiiiiiiiiiiiiiiiiiii");
     if (favList !== null) {
       if (favList.length > 0) {
         favList.map((personagem) => {

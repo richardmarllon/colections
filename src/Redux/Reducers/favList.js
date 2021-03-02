@@ -1,6 +1,14 @@
 import { FAV_LIST_ADD, FAV_LIST_REMOVE } from "../Actions/actionsType";
-let key = "listOfFav";
-const defaultState = JSON.parse(localStorage.getItem(key));
+
+// const defaultState = JSON.parse(localStorage.getItem(key));
+let defaultState = [{}];
+const SetDefaultState = () => {
+  let key = "listOfFav";
+  if (localStorage.getItem(key)) {
+    defaultState = JSON.parse(localStorage.getItem(key));
+  }
+};
+SetDefaultState();
 
 export const favList = (state = defaultState, action) => {
   switch (action.type) {

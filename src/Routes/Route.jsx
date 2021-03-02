@@ -1,4 +1,5 @@
 import { Route, Switch } from "react-router-dom";
+import ErrorPage from "../Pages/ErrorRequest";
 import Favorites from "../Pages/Favorites";
 import Home from "../Pages/Home/Home";
 import PokemonPage from "../Pages/PokemonPage";
@@ -8,9 +9,6 @@ import RickyPage from "../Pages/RickyPage";
 export const Routes = () => {
   return (
     <Switch>
-      <Route exact path="/">
-        <Home />
-      </Route>
       <Route exact path="/pokemon">
         <PokemonPage />
       </Route>
@@ -22,6 +20,12 @@ export const Routes = () => {
       </Route>
       <Route exact path="/favs">
         <Favorites />
+      </Route>
+      <Route exact path="/error">
+        <ErrorPage />
+      </Route>
+      <Route>
+        <Home />
       </Route>
     </Switch>
   );
