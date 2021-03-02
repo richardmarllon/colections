@@ -20,9 +20,7 @@ const SearchField = ({ onRicky }) => {
     evt.preventDefault();
 
     if (onRicky) {
-      console.log("noricky");
       let search = value.split(" ").join("+");
-      console.log(search);
       axios
         .get(`https://rickandmortyapi.com/api/character/?name=${search}`)
         .then((response) => {

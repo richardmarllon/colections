@@ -1,16 +1,37 @@
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import CardList from "../../components/CardList/CardList";
+import { BtnContainer, BtnStyled, Text } from "./styles";
 
 const Favorites = () => {
-  const personagem = useSelector((state) => state.favList);
-  console.log(personagem);
-  let key = "listOfFav";
-  let favs = JSON.parse(localStorage.getItem(key));
+  const favList = useSelector((state) => state.favList);
+  const [showRicky, setShowRicky] = useState();
+  const [newList, setNewList] = useState(favList);
 
-  console.log(favs, "os favs");
+  useEffect(() => {
+    let filteredList = [];
+
+    if (showRicky) {
+      filteredList = favList.filter((item) => item.type === "rickys");
+      setNewList(filteredList);
+    } else {
+      filteredList = favList.filter((item) => item.type === "pokemon");
+      setNewList(filteredList);
+    }
+  }, [showRicky]);
+
   return (
     <div>
-      <CardList list={favs} />
+      <BtnContainer>
+        <Text> Escolha quais favoritos exibir:</Text>
+        <BtnStyled variant="outlined" onClick={() => setShowRicky(false)}>
+          POKEMON
+        </BtnStyled>
+        <BtnStyled variant="outlined" onClick={() => setShowRicky(true)}>
+          RICKY
+        </BtnStyled>
+      </BtnContainer>
+      {showRicky !== undefined && <CardList list={newList} />}
     </div>
   );
 };

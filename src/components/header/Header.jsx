@@ -5,7 +5,6 @@ import { useHistory } from "react-router-dom";
 
 const Header = () => {
   const history = useHistory();
-  // console.log(history);
   return (
     <>
       <AppBar position="sticky">
