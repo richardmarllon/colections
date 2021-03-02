@@ -12,13 +12,15 @@ import {
 } from "./style";
 
 const Card = ({ item }) => {
+  const [isFav, setIsFav] = useState(false);
+
   return (
     <CardContainer>
       {item.type !== "pokemon" && <ImgBox src={item.img} />}
       {item.type === "pokemon" && <ImgBoxP src={item.img} />}
       <InfoBox>
         <NameBox>{item.name}</NameBox>
-        <StyledButton isFav={false} />
+        <StyledButton isFav={isFav} setIsFav={setIsFav} character={item} />
       </InfoBox>
     </CardContainer>
   );

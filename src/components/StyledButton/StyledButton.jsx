@@ -2,10 +2,32 @@ import Button from "@material-ui/core/Button";
 import styled from "styled-components";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
+import { useDispatch, useSelector } from "react-redux";
+import { favListAdd, favListRemove } from "../../Redux/Actions/actions";
 
-const StyledButton = ({ isFav }) => {
+const StyledButton = ({ character }) => {
+  const dispatch = useDispatch();
+  const favList = useSelector((state) => state.favList);
+  // console.log(favList, "a lista aqui");
+
+  let isFav = false;
+  if (favList) {
+    favList.map((item) => {
+      if (item === character) {
+        isFav = true;
+      }
+    });
+  }
+
   return (
-    <NewBtn startIcon={isFav ? <HighlightOffIcon /> : <StarBorderIcon />}>
+    <NewBtn
+      startIcon={isFav ? <HighlightOffIcon /> : <StarBorderIcon />}
+      onClick={() => {
+        isFav
+          ? dispatch(favListRemove(character))
+          : dispatch(favListAdd(character));
+      }}
+    >
       {isFav ? `REMOVE FROM FAVORITES` : `ADD TO FAVORITES`}
     </NewBtn>
   );

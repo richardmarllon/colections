@@ -45,6 +45,14 @@ const Header = () => {
             >
               Resultado
             </Button>
+            <Button
+              variant="contained"
+              onClick={() => {
+                history.push("/favs");
+              }}
+            >
+              Favs
+            </Button>
           </div>
         </MenuBar>
       </AppBar>
