@@ -13,10 +13,13 @@ const StyledButton = ({ character }) => {
 
   useEffect(() => {
     setIsFav(false);
-    if (favList.length > 0) {
-      favList.map((personagem) => {
-        personagem.name === character.name && setIsFav(true);
-      });
+    console.log(favList, "aquiiiiiiiiiiiiiiiiiiiiiiiii");
+    if (favList !== null) {
+      if (favList.length > 0) {
+        favList.map((personagem) => {
+          personagem.name === character.name && setIsFav(true);
+        });
+      }
     }
   }, [favList, isFav, character]);
 
