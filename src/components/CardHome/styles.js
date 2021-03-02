@@ -18,6 +18,7 @@ export const Container = styled.div`
     max-width: 100vw;
     padding: 0;
     margin: 0;
+    justify-content: flex-start;
   }
 `;
 
@@ -42,7 +43,6 @@ export const OptionCard = styled.div`
 ;`};
 
   &:hover {
-    /* border: 2px solid red; */
     box-shadow: 0px 0px 15px white;
     cursor: pointer;
   }
@@ -54,7 +54,7 @@ export const OptionCard = styled.div`
   @media (max-width: 600px) {
     width: 100%;
     padding: 0;
-    margin: 0;
+    margin: 5% 0;
   }
 `;
 
@@ -64,5 +64,7 @@ export const Text = styled(Typography)`
   padding: 1rem;
   @media (max-width: 600px) {
     font-size: 1.5rem;
+    padding: 0;
+    margin-top: 5%;
   }
 `;
