@@ -7,39 +7,18 @@ import { favListAdd, favListRemove } from "../../Redux/Actions/actions";
 import { useEffect, useState } from "react";
 
 const StyledButton = ({ character }) => {
-  const [isFav, setIsFav] = useState(false);
   const dispatch = useDispatch();
   const favList = useSelector((state) => state.favList);
-  // console.log(favList, "a lista aqui");
-
-  let key = "listOfFav";
-  let favs = JSON.parse(localStorage.getItem(key));
-
-  console.log(favs, "vindo da local");
-
-  // let isFav = false;
-  // if (favList) {
-  //   favList.map((item) => {
-  //     if (item === character) {
-  //       isFav = true;
-  //     }
-  //   });
-  // }
+  const [isFav, setIsFav] = useState(false);
 
   useEffect(() => {
-    if (favs) {
-      console.log("entrouuuuuu");
-      console.log(favs);
-      favs.map((item) => {
-        if (item.name === character.name) {
-          console.log(
-            "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-          );
-          setIsFav(true);
-        }
+    setIsFav(false);
+    if (favList.length > 0) {
+      favList.map((personagem) => {
+        personagem.name === character.name && setIsFav(true);
       });
     }
-  }, [favs]);
+  }, [favList, isFav, character]);
 
   return (
     <NewBtn

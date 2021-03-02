@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import StyledButton from "../StyledButton/StyledButton";
 import {
   CardContainer,
@@ -12,15 +13,14 @@ import {
 } from "./style";
 
 const Card = ({ item }) => {
-  const [isFav, setIsFav] = useState(false);
-
+  
   return (
     <CardContainer>
       {item.type !== "pokemon" && <ImgBox src={item.img} />}
       {item.type === "pokemon" && <ImgBoxP src={item.img} />}
       <InfoBox>
         <NameBox>{item.name}</NameBox>
-        <StyledButton isFav={isFav} setIsFav={setIsFav} character={item} />
+        <StyledButton character={item}  />
       </InfoBox>
     </CardContainer>
   );
