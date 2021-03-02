@@ -32,7 +32,7 @@ const SearchField = ({ onRicky }) => {
 
           distpatch(searchCharacter(character[0]));
         })
-        .catch(() => {
+        .catch((err) => {
           history.push("/error");
         });
     } else {
@@ -47,7 +47,7 @@ const SearchField = ({ onRicky }) => {
           });
           distpatch(searchCharacter(character[0]));
         })
-        .catch(() => {
+        .catch((err) => {
           history.push("/error");
         });
     }

@@ -35,9 +35,9 @@ export const OptionCard = styled.div`
   background-position: center bottom;
 
   ${(props) =>
-    props.className == "pokemon" && `background-image: url(${pokemon});`};
+    props.className === "pokemon" && `background-image: url(${pokemon});`};
   ${(props) =>
-    props.className == "ricky" &&
+    props.className === "ricky" &&
     `background-image: url(${ricky});
     background-position: 50% 10%
 ;`};
